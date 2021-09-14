@@ -15,7 +15,7 @@ public class StadiumBookingSystem {
     public static void main(String[] args) {
         
         createLoginScreen();
-        
+          
 //        //Making the window fit the screen
 //        Toolkit tk = Toolkit.getDefaultToolkit();
 //        int xSize = (int)tk.getScreenSize().getWidth();
