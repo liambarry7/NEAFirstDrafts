@@ -31,41 +31,44 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="112" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel2" min="-2" pref="428" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="BackButton" min="-2" pref="63" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="ConfirmButton" min="-2" pref="84" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" pref="88" max="32767" attributes="0"/>
-                                  <Component id="jLabel6" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel2" min="-2" pref="428" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="BackButton" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel3" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" alignment="0" pref="88" max="32767" attributes="0"/>
+                                      <Component id="jLabel6" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel7" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel7" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="LastNameField" min="-2" pref="247" max="-2" attributes="0"/>
-                              <Component id="AddressField" min="-2" pref="247" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="FirstNameField" max="32767" attributes="0"/>
-                                  <Component id="EmailField" max="32767" attributes="0"/>
-                                  <Component id="jPasswordField1" pref="247" max="32767" attributes="0"/>
-                                  <Component id="PhoneNumberField" alignment="0" pref="247" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LastNameField" min="-2" pref="247" max="-2" attributes="0"/>
+                                  <Component id="AddressField" min="-2" pref="247" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="FirstNameField" max="32767" attributes="0"/>
+                                      <Component id="EmailField" max="32767" attributes="0"/>
+                                      <Component id="PasswordField" pref="247" max="32767" attributes="0"/>
+                                      <Component id="PhoneNumberField" alignment="0" pref="247" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="CreateAccountButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,7 +93,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="jPasswordField1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="PasswordField" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -110,7 +113,7 @@
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BackButton" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="ConfirmButton" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="CreateAccountButton" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
@@ -159,7 +162,7 @@
         <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+    <Component class="javax.swing.JPasswordField" name="PasswordField">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -192,13 +195,16 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="ConfirmButton">
+    <Component class="javax.swing.JButton" name="CreateAccountButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Confirm"/>
+        <Property name="text" type="java.lang.String" value="Create Account"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreateAccountButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>

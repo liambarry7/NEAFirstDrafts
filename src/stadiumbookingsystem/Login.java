@@ -5,6 +5,8 @@
  */
 package stadiumbookingsystem;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kimia
@@ -32,7 +34,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        UsernameField = new javax.swing.JTextField();
+        EmailField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         LoginButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -44,17 +46,17 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel1.setText("Username");
+        jLabel1.setText("Email");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(130, 260, 86, 35);
+        jLabel1.setBounds(130, 270, 86, 35);
 
-        UsernameField.addActionListener(new java.awt.event.ActionListener() {
+        EmailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameFieldActionPerformed(evt);
+                EmailFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(UsernameField);
-        UsernameField.setBounds(270, 270, 252, 35);
+        getContentPane().add(EmailField);
+        EmailField.setBounds(270, 270, 252, 35);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Password");
@@ -95,7 +97,7 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         
-        String username = UsernameField.getText();
+        String username = EmailField.getText();
         String password = new String (jPasswordField1.getPassword());
         
         if(username.equals("Admin") && password.equals("password")) {
@@ -103,7 +105,7 @@ public class Login extends javax.swing.JFrame {
             mm.setSize(600,500);
             mm.setVisible(true);
             
-            UsernameField.setText(null); //resets text field to be empty
+            EmailField.setText(null); //resets text field to be empty
             jPasswordField1.setText(null); //resets password field to be emtpy
             
             this.dispose(); //closes login window
@@ -116,13 +118,15 @@ public class Login extends javax.swing.JFrame {
 
     private void CreateAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountButtonActionPerformed
         
-        reference.createSignUpWindow();
+        SignUp su = new SignUp();
+        su.setSize(633, 553);
+        su.setVisible(true);
         this.dispose(); //closes login window
     }//GEN-LAST:event_CreateAccountButtonActionPerformed
 
-    private void UsernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameFieldActionPerformed
+    private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameFieldActionPerformed
+    }//GEN-LAST:event_EmailFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,9 +165,9 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateAccountButton;
+    private javax.swing.JTextField EmailField;
     private javax.swing.JLabel ErrorMessage;
     private javax.swing.JButton LoginButton;
-    private javax.swing.JTextField UsernameField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

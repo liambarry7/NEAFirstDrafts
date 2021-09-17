@@ -28,7 +28,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        BackButton = new javax.swing.JButton();
+        ExitButton = new javax.swing.JButton();
         UpcomingEventsButton = new javax.swing.JButton();
         AccountButton = new javax.swing.JButton();
         StadiumInformationButton = new javax.swing.JButton();
@@ -37,10 +37,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stadiumbookingsystem/BaseLogo.PNG"))); // NOI18N
 
-        BackButton.setText("Back");
-        BackButton.addActionListener(new java.awt.event.ActionListener() {
+        ExitButton.setText("Exit");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackButtonActionPerformed(evt);
+                ExitButtonActionPerformed(evt);
             }
         });
 
@@ -64,7 +64,7 @@ public class MainMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(108, Short.MAX_VALUE)
@@ -92,29 +92,20 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(StadiumInformationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         
-        StadiumBookingSystem.createLoginScreen();
-        this.dispose();
-        
-//        //closes MainMenu window and reopens LOGIN menu
-//        Login l = new Login();
-//        
-//        //width, height
-//        l.setSize(687,500);
-//        l.setVisible(true);
-//        this.dispose(); //closes MainMenu
+        System.exit(0);
         
         
         
-    }//GEN-LAST:event_BackButtonActionPerformed
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void UpcomingEventsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpcomingEventsButtonActionPerformed
         this.dispose();
@@ -158,7 +149,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccountButton;
-    private javax.swing.JButton BackButton;
+    private javax.swing.JButton ExitButton;
     private javax.swing.JButton StadiumInformationButton;
     private javax.swing.JButton UpcomingEventsButton;
     private javax.swing.JLabel jLabel1;
