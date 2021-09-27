@@ -9,19 +9,25 @@ public class newAccount {
     private String email;
     private String password;
     private String phoneNo;
-    private String address;
+    private String addressOne;
+    private String addressTwo;
+    private String city;
+    private String postCode;
 
-    public newAccount(String firstName, String lastName, String email, String password, String phoneNo, String address) {
+    public newAccount(String firstName, String lastName, String email, String password, String phoneNo, String addressOne, String addressTwo, String city, String postCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.phoneNo = phoneNo;
-        this.address = address;
-    }
+        this.addressOne = addressOne;
+        this.addressTwo = addressTwo;
+        this.city = city;
+        this.postCode = postCode;
+    }    
     
     public String toString() {
-        return firstName + " " + lastName + " " + email + " " + password + " " + phoneNo + " " + address;
+        return firstName + " " + lastName + " " + email + " " + password + " " + phoneNo + " " + addressOne + " " + addressTwo + " " + city + " " + postCode;
     }
 
     public String getFirstName() {
@@ -44,8 +50,20 @@ public class newAccount {
         return phoneNo;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddressOne() {
+        return addressOne;
+    }
+
+    public String getAddressTwo() {
+        return addressTwo;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getPostCode() {
+        return postCode;
     }
 
     public void setFirstName(String firstName) {
@@ -68,10 +86,22 @@ public class newAccount {
         this.phoneNo = phoneNo;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddressOne(String addressOne) {
+        this.addressOne = addressOne;
     }
-    
+
+    public void setAddressTwo(String addressTwo) {
+        this.addressTwo = addressTwo;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
     
     
 }
