@@ -12,8 +12,7 @@ public class StadiumBookingSystem {
     
     public static void main(String[] args) {
         
-        library.databaseSQL.test();
-        library.databaseSQL.displayTable();
+        
         
         createLoginScreen();
         
