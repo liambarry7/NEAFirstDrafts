@@ -2,7 +2,7 @@
 package objects;
 
 
-public class newAccount {
+public class account {
     
     private int accountID;
     private String firstName;
@@ -15,7 +15,7 @@ public class newAccount {
     private String city;
     private String postCode;
 
-    public newAccount(int accountID, String firstName, String lastName, String email, String password, String phoneNo, String addressOne, String addressTwo, String city, String postCode) {
+    public account(int accountID, String firstName, String lastName, String email, String password, String phoneNo, String addressOne, String addressTwo, String city, String postCode) {
         this.accountID = accountID;
         this.firstName = firstName;
         this.lastName = lastName;

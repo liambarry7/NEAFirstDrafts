@@ -18,15 +18,18 @@ public class StadiumBookingSystem {
         createLoginScreen();
         
         databaseSQL.getAllAccounts();
-        Connection con = databaseSQL.getConnection();
         
-        if (con==null){
-            System.out.println("cheese");
-        } else {
-            System.out.println("tomato");
-        }
         
-        databaseSQL.getMaxAccountNumber();
+//        Connection con = databaseSQL.getConnection();        
+//        if (con==null){
+//            System.out.println("cheese");
+//        } else {
+//            System.out.println("tomato");
+//        }
+        
+        //databaseSQL.getMaxAccountNumber();
+        
+        //databaseSQL.removeAccount(7);
         
         
         //JOptionPane.showMessageDialog(null, "New project added successfully");

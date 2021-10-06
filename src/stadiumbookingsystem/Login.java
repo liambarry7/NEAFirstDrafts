@@ -77,6 +77,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(130, 20, 431, 200);
 
+        ErrorMessage.setForeground(new java.awt.Color(255, 0, 51));
         ErrorMessage.setText("Login details incorrect!");
         getContentPane().add(ErrorMessage);
         ErrorMessage.setBounds(270, 410, 160, 20);
@@ -97,16 +98,17 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         
-        
-        
-        
-        
-        
-        
-        String username = EmailField.getText();
+        //check against database to log in rather than pre made and set login details
+        //use a boolean method to compare database and inputs - if true, log in
+        String email = EmailField.getText();
         String password = new String (jPasswordField1.getPassword());
         
-        if(username.equals("Admin") && password.equals("password")) {
+        
+        
+        
+        
+        
+        if(email.equals("Admin") && password.equals("password")) {
             MainMenu mm = new MainMenu();
             mm.setSize(600,500);
             mm.setVisible(true);
@@ -125,7 +127,7 @@ public class Login extends javax.swing.JFrame {
     private void CreateAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountButtonActionPerformed
         
         SignUp su = new SignUp();
-        //su.setSize(633, 553);
+        //su.setSize(722, 670);
         su.setVisible(true);
         this.dispose(); //closes login window
     }//GEN-LAST:event_CreateAccountButtonActionPerformed

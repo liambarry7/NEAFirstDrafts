@@ -25,7 +25,7 @@ public class databaseSQL {
     
    
     
-    public static void addNewAccount(newAccount na) {
+    public static void addNewAccount(account na) {
         try {
             //creating sql statement of adding a record into the account table
             String sql = "INSERT INTO account VALUES ('"+na.getAccountID()+"','"+na.getFirstName()+"','"+na.getLastName()+"','"+na.getEmail()+"','"+na.getPassword()+"','"+na.getPhoneNo()+"','"+na.getAddressOne()+"','"+na.getAddressTwo()+"','"+na.getCity()+"','"+na.getPostCode()+"')";
@@ -40,7 +40,7 @@ public class databaseSQL {
         }
     }
     
-    public static int getMaxAccountNumber() {
+    public static int getMaxAccountNumber() { //used for adding new accounts
         try {
             String sql = "SELECT MAX(accountid) AS idNum FROM account"; //find highest number of accountID, save value as idNum from tbl_account
             ResultSet rs = executer.executeQuery(getConnection(), sql);
@@ -57,21 +57,37 @@ public class databaseSQL {
         return 0;
     }
     
+    public static void removeAccount(int accountID) {
+        try {            
+            String sql = "DELETE FROM account WHERE accountid = '"+accountID+"' ";
+            executer.executeUpdateQuery(con, sql);
+            
+            System.out.println("successfully removed record from account table in database");
+            
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Error in deleting record in account table: " + e);
+        }
+    }    
     
-//    public static void userLogIn(String userEmail, String password) {
+    
+//    public static Boolean userLogIn(String userEmail, String password) {
 //        try {
-//            String sql = "SELECT * FROM tbl_account WHERE email = '" + userEmail + "'";
-//            ResultSet rs = 
+//            String sql = "SELECT * FROM account WHERE email = '"+userEmail+"'";
+//            ResultSet rs = executer.executeQuery(getConnection(), sql);
+//            
+//            System.out.println(rs);
+//            
 //            
 //            
 //        } catch (Exception e) {
 //        }
-//        
+//        return false;
 //    }   
     
     
     public static void getAllAccounts() {
-        ArrayList<newAccount> AccountList = new ArrayList<>();
+        ArrayList<account> AccountList = new ArrayList<>();
         try {
             String sql = "SELECT * FROM account";
             ResultSet rs = executer.executeQuery(getConnection(), sql);
@@ -87,7 +103,7 @@ public class databaseSQL {
                 String city = rs.getString("city");
                 String postCode = rs.getString("postcode");
                 
-                newAccount ac = new newAccount(id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode); //creating new object to be added to the list
+                account ac = new account(id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode); //creating new object to be added to the list
                 AccountList.add(ac); //adding new object to array list
                 
                 
