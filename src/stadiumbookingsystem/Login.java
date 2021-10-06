@@ -97,6 +97,12 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         
+        
+        
+        
+        
+        
+        
         String username = EmailField.getText();
         String password = new String (jPasswordField1.getPassword());
         

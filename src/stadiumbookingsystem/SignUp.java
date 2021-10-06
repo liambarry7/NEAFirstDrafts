@@ -6,6 +6,7 @@
 package stadiumbookingsystem;
 
 import javax.swing.JOptionPane;
+import library.databaseSQL;
 import objects.newAccount;
 
 /**
@@ -293,9 +294,17 @@ public class SignUp extends javax.swing.JFrame {
             
             //if pasword, phone number and email are all valid, create account
             if (validPassword == true && validEmail == true && validPhoneNo == true) {
-            newAccount na = new newAccount(FirstNameField.getText(), LastNameField.getText(), EmailField.getText(), PasswordField.getText(), PhoneNumberField.getText(), AddressOneField.getText(), AddressTwoField.getText(), CityField.getText(), PostCodeField.getText());                System.out.println(na);
-                JOptionPane.showMessageDialog(null, "Success!");
                 
+                int accountID = databaseSQL.getMaxAccountNumber();
+                
+                
+                newAccount na = new newAccount(accountID, FirstNameField.getText(), LastNameField.getText(), EmailField.getText(), PasswordField.getText(), PhoneNumberField.getText(), AddressOneField.getText(), AddressTwoField.getText(), CityField.getText(), PostCodeField.getText());
+                System.out.println(na);
+                
+                databaseSQL.addNewAccount(na);
+
+                JOptionPane.showMessageDialog(null, "Success!");
+
                 Login l = new Login(); //creates new login menu
                 l.setSize(687,500);
                 l.setVisible(true);

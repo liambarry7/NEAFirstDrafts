@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import library.databaseSQL;
 
 
 public class StadiumBookingSystem {
@@ -15,6 +16,18 @@ public class StadiumBookingSystem {
         
         
         createLoginScreen();
+        
+        databaseSQL.getAllAccounts();
+        Connection con = databaseSQL.getConnection();
+        
+        if (con==null){
+            System.out.println("cheese");
+        } else {
+            System.out.println("tomato");
+        }
+        
+        databaseSQL.getMaxAccountNumber();
+        
         
         //JOptionPane.showMessageDialog(null, "New project added successfully");
           
@@ -30,6 +43,11 @@ public class StadiumBookingSystem {
 
 
     }
+    
+
+    
+    
+    
     
     public static void createLoginScreen(){
         Login l = new Login();

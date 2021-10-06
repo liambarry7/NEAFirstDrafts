@@ -4,6 +4,7 @@ package objects;
 
 public class newAccount {
     
+    private int accountID;
     private String firstName;
     private String lastName;
     private String email;
@@ -14,7 +15,8 @@ public class newAccount {
     private String city;
     private String postCode;
 
-    public newAccount(String firstName, String lastName, String email, String password, String phoneNo, String addressOne, String addressTwo, String city, String postCode) {
+    public newAccount(int accountID, String firstName, String lastName, String email, String password, String phoneNo, String addressOne, String addressTwo, String city, String postCode) {
+        this.accountID = accountID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -24,10 +26,15 @@ public class newAccount {
         this.addressTwo = addressTwo;
         this.city = city;
         this.postCode = postCode;
-    }    
+    }
+     
     
     public String toString() {
-        return firstName + " " + lastName + " " + email + " " + password + " " + phoneNo + " " + addressOne + " " + addressTwo + " " + city + " " + postCode;
+        return accountID + " " + firstName + " " + lastName + " " + email + " " + password + " " + phoneNo + " " + addressOne + " " + addressTwo + " " + city + " " + postCode;
+    }
+
+    public int getAccountID() {
+        return accountID;
     }
 
     public String getFirstName() {
@@ -64,6 +71,10 @@ public class newAccount {
 
     public String getPostCode() {
         return postCode;
+    }
+
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
     }
 
     public void setFirstName(String firstName) {
