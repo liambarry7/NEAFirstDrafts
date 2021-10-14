@@ -6,6 +6,7 @@
 package stadiumbookingsystem;
 
 import javax.swing.JOptionPane;
+import library.databaseSQL;
 
 /**
  *
@@ -98,28 +99,29 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         
-        //check against database to log in rather than pre made and set login details
-        //use a boolean method to compare database and inputs - if true, log in
+        
         String email = EmailField.getText();
         String password = new String (jPasswordField1.getPassword());
         
+        boolean valid = databaseSQL.userLogIn(email, password); //executes method to check user details against the database 
         
-        
-        
-        
-        
-        if(email.equals("Admin") && password.equals("password")) {
-            MainMenu mm = new MainMenu();
-            mm.setSize(600,500);
+        if(valid == true) { //if database deatils are correct, it returns a true value to verify the login
+            
+            databaseSQL.setCurrentUser(email, password);
+            System.out.println("Logging in....");
+            MainMenu mm = new MainMenu(); //creates new main menu object to be opened
+            //mm.setSize(600,500);
             mm.setVisible(true);
+            this.dispose(); //closes login menu
             
-            EmailField.setText(null); //resets text field to be empty
-            jPasswordField1.setText(null); //resets password field to be emtpy
+        } else if (valid != true) {
+            System.out.println("Login details incorrect!");
+            ErrorMessage.setVisible(true); //displays login error message          
             
-            this.dispose(); //closes login window
-        } else {
-            ErrorMessage.setVisible(true);
         }
+        
+        
+        
         
         
     }//GEN-LAST:event_LoginButtonActionPerformed

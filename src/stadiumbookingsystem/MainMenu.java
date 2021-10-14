@@ -5,6 +5,8 @@
  */
 package stadiumbookingsystem;
 
+import library.databaseSQL;
+
 /**
  *
  * @author kimia
@@ -16,6 +18,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
+        jLabel2.setText(databaseSQL.getCurrentUser().getEmail());
     }
 
     /**
@@ -32,6 +35,7 @@ public class MainMenu extends javax.swing.JFrame {
         UpcomingEventsButton = new javax.swing.JButton();
         AccountButton = new javax.swing.JButton();
         StadiumInformationButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +61,13 @@ public class MainMenu extends javax.swing.JFrame {
 
         StadiumInformationButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         StadiumInformationButton.setText("View Stadium Information");
+        StadiumInformationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StadiumInformationButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,15 +81,18 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(108, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(103, 103, 103))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(StadiumInformationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(UpcomingEventsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(AccountButton, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
-                        .addGap(191, 191, 191))))
+                        .addGap(191, 191, 191))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(103, 103, 103))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +106,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(StadiumInformationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addContainerGap())
         );
 
@@ -111,6 +127,12 @@ public class MainMenu extends javax.swing.JFrame {
         this.dispose();
         StadiumBookingSystem.createLoginScreen();
     }//GEN-LAST:event_UpcomingEventsButtonActionPerformed
+
+    private void StadiumInformationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StadiumInformationButtonActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_StadiumInformationButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,5 +175,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton StadiumInformationButton;
     private javax.swing.JButton UpcomingEventsButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,6 +12,7 @@ public class databaseSQL {
     
     private static final String DatabaseLocation = System.getProperty("user.dir") + "\\SBSDatabase.accdb"; //location of database in files
     private static Connection con; //creating gloabal variable that can be used repeatedly rather than having to recreate new connection every time
+    private static account currentUser; //global variable that stores the users details after they have logged in
     
     public static Connection getConnection() { //creating a connection to the database for when sql statements are executed
         try {
@@ -45,11 +46,11 @@ public class databaseSQL {
             String sql = "SELECT MAX(accountid) AS idNum FROM account"; //find highest number of accountID, save value as idNum from tbl_account
             ResultSet rs = executer.executeQuery(getConnection(), sql);
             rs.next();
-            int idValue = rs.getInt("idNum")+1;
+            int idValue = rs.getInt("idNum")+1; //adds one to highest ID value so that new account
             
             System.out.println("Max account num: " + idValue); //next account value (id)
             
-            return idValue;
+            return idValue; //returns new ID number
             
         } catch (Exception e) {
             System.out.println("Error in finding maximum account number: " + e);
@@ -57,9 +58,9 @@ public class databaseSQL {
         return 0;
     }
     
-    public static void removeAccount(int accountID) {
+    public static void removeAccount(int accountID) { //used for when a user decides to terminate their account
         try {            
-            String sql = "DELETE FROM account WHERE accountid = '"+accountID+"' ";
+            String sql = "DELETE FROM account WHERE accountid = '"+accountID+"' "; //statement used to find record with parametered account ID
             executer.executeUpdateQuery(con, sql);
             
             System.out.println("successfully removed record from account table in database");
@@ -71,19 +72,71 @@ public class databaseSQL {
     }    
     
     
-//    public static Boolean userLogIn(String userEmail, String password) {
-//        try {
-//            String sql = "SELECT * FROM account WHERE email = '"+userEmail+"'";
-//            ResultSet rs = executer.executeQuery(getConnection(), sql);
-//            
-//            System.out.println(rs);
-//            
-//            
-//            
-//        } catch (Exception e) {
-//        }
-//        return false;
-//    }   
+    public static Boolean userLogIn(String loginEmail, String loginPassword) { //parameters taken from the text fields on login GUI
+        try {
+            String sql = "SELECT * FROM account WHERE email = '"+loginEmail+"'"; //selecting record where the email from the text fields match the database
+            ResultSet rs = executer.executeQuery(getConnection(), sql);
+            
+            String userEmail = "";
+            String userPassword = "";
+            
+            while(rs.next()) { //result set returns results where the email details match and retrieves the password for that account
+                userEmail = rs.getString("email");
+                userPassword = rs.getString("password");
+                
+                System.out.println(userEmail + " " + userPassword);
+            }
+        
+            if (loginEmail.equals(userEmail) && loginPassword.equals(userPassword)) { //if the login details and the record match, return true (= user can log in)
+                System.out.println("Login details correct!");
+                rs.close();
+                con.close();
+                return true;
+            } else {
+                System.out.println("Login details incorrect!");
+                rs.close();
+                con.close();
+                return false;
+            }
+   
+            
+        } catch (Exception e) {
+            System.out.println("Error getting login details from database: " + e);
+        }
+        return false;
+    }   
+    
+    
+    public static void setCurrentUser(String loginEmail, String loginPassword) {
+        try {
+            String sql = "SELECT * FROM account WHERE email = '" +loginEmail+ "'"; //selecting record where email matches database
+            ResultSet rs = executer.executeQuery(getConnection(), sql);
+
+            while (rs.next()) {
+                int id = rs.getInt("accountid");
+                String firstName = rs.getString("firstname");
+                String lastName = rs.getString("lastname");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                String phoneNumber = rs.getString("phonenumber");
+                String addressOne = rs.getString("addresslineone");
+                String addressTwo = rs.getString("addresslinetwo");
+                String city = rs.getString("city");
+                String postCode = rs.getString("postcode");
+                
+                currentUser = new account (id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode); //creates account object that is stored in a global variable 
+                
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error in setting current user: " + e);
+        }       
+        
+    }
+    
+    public static account getCurrentUser() { //returns account object of logged in user so that object can be used in other classes
+        return currentUser;
+    }
     
     
     public static void getAllAccounts() {

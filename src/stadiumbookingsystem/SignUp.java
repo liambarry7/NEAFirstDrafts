@@ -278,7 +278,7 @@ public class SignUp extends javax.swing.JFrame {
     private void CreateAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountButtonActionPerformed
         try {
             
-            //create pop up text (like on the login page) to tell user correct password details
+            //change to have regular expressions
             
             
             //sets value of textfeild to a variable that can be called.
