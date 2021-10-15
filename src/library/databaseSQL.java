@@ -61,7 +61,8 @@ public class databaseSQL {
     public static void removeAccount(int accountID) { //used for when a user decides to terminate their account
         try {            
             String sql = "DELETE FROM account WHERE accountid = '"+accountID+"' "; //statement used to find record with parametered account ID
-            executer.executeUpdateQuery(con, sql);
+            executer.executeUpdateQuery(getConnection(), sql);
+            
             
             System.out.println("successfully removed record from account table in database");
             
@@ -84,16 +85,22 @@ public class databaseSQL {
                 userEmail = rs.getString("email");
                 userPassword = rs.getString("password");
                 
-                System.out.println(userEmail + " " + userPassword);
+                //System.out.println(userEmail + " " + userPassword);
             }
+            
+            //hash loginPassword
+            String hashLoginPassword = hashing.hashPassword(loginPassword);
+            
+            
+            
         
-            if (loginEmail.equals(userEmail) && loginPassword.equals(userPassword)) { //if the login details and the record match, return true (= user can log in)
-                System.out.println("Login details correct!");
+            if (loginEmail.equals(userEmail) && hashLoginPassword.equals(userPassword)) { //if the login details and the record match, return true (= user can log in)
+                //System.out.println("Login details correct!");
                 rs.close();
                 con.close();
                 return true;
             } else {
-                System.out.println("Login details incorrect!");
+                //System.out.println("Login details incorrect!");
                 rs.close();
                 con.close();
                 return false;

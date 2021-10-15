@@ -7,6 +7,7 @@ package stadiumbookingsystem;
 
 import javax.swing.JOptionPane;
 import library.databaseSQL;
+import library.hashing;
 import objects.account;
 
 /**
@@ -341,8 +342,9 @@ public class SignUp extends javax.swing.JFrame {
             if (validPassword == true && validEmail == true && validPhoneNo == true && validTextFields == true) {
                 
                 int accountID = databaseSQL.getMaxAccountNumber(); //gets integer for highest accountID so that new account does not have the same ID as another account
-                                
-                account na = new account(accountID, FirstNameField.getText(), LastNameField.getText(), EmailField.getText(), PasswordField.getText(), PhoneNumberField.getText(), AddressOneField.getText(), AddressTwoField.getText(), CityField.getText(), PostCodeField.getText());
+                String hashedPassword = hashing.hashPassword(PasswordField.getText());
+                System.out.println(hashedPassword);
+                account na = new account(accountID, FirstNameField.getText(), LastNameField.getText(), EmailField.getText(), hashedPassword, PhoneNumberField.getText(), AddressOneField.getText(), AddressTwoField.getText(), CityField.getText(), PostCodeField.getText());
                 System.out.println(na);
                 
                 databaseSQL.addNewAccount(na);

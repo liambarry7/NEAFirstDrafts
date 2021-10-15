@@ -13,12 +13,14 @@ public class StadiumBookingSystem {
     
     public static void main(String[] args) {
         
-        
+       
         
         createLoginScreen();
         
         databaseSQL.getAllAccounts();
         
+        
+//        databaseSQL.removeAccount(7);
         
 //        Connection con = databaseSQL.getConnection();        
 //        if (con==null){
@@ -29,7 +31,7 @@ public class StadiumBookingSystem {
         
         //databaseSQL.getMaxAccountNumber();
         
-        //databaseSQL.removeAccount(7);
+        
         
         
         //JOptionPane.showMessageDialog(null, "New project added successfully");

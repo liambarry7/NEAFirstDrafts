@@ -18,7 +18,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
-        jLabel2.setText(databaseSQL.getCurrentUser().getEmail());
+        LoggedInUser.setText(databaseSQL.getCurrentUser().getEmail());
     }
 
     /**
@@ -35,7 +35,7 @@ public class MainMenu extends javax.swing.JFrame {
         UpcomingEventsButton = new javax.swing.JButton();
         AccountButton = new javax.swing.JButton();
         StadiumInformationButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        LoggedInUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +58,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         AccountButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         AccountButton.setText("View Account Button");
+        AccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AccountButtonActionPerformed(evt);
+            }
+        });
 
         StadiumInformationButton.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         StadiumInformationButton.setText("View Stadium Information");
@@ -67,7 +72,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("jLabel2");
+        LoggedInUser.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,7 +96,7 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(103, 103, 103))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LoggedInUser, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42))))
         );
         layout.setVerticalGroup(
@@ -108,7 +113,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(LoggedInUser))
                 .addContainerGap())
         );
 
@@ -124,8 +129,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void UpcomingEventsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpcomingEventsButtonActionPerformed
-        this.dispose();
-        StadiumBookingSystem.createLoginScreen();
+        
     }//GEN-LAST:event_UpcomingEventsButtonActionPerformed
 
     private void StadiumInformationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StadiumInformationButtonActionPerformed
@@ -133,6 +137,12 @@ public class MainMenu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_StadiumInformationButtonActionPerformed
+
+    private void AccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountButtonActionPerformed
+        AccountMenu am = new AccountMenu();
+        am.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_AccountButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,9 +182,9 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AccountButton;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JLabel LoggedInUser;
     private javax.swing.JButton StadiumInformationButton;
     private javax.swing.JButton UpcomingEventsButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
