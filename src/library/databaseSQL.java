@@ -83,17 +83,12 @@ public class databaseSQL {
             
             while(rs.next()) { //result set returns results where the email details match and retrieves the password for that account
                 userEmail = rs.getString("email");
-                userPassword = rs.getString("password");
-                
-                //System.out.println(userEmail + " " + userPassword);
+                userPassword = rs.getString("password");                
             }
             
-            //hash loginPassword
+            //hash loginPassword to be used to compare against the hashed database password
             String hashLoginPassword = hashing.hashPassword(loginPassword);
             
-            
-            
-        
             if (loginEmail.equals(userEmail) && hashLoginPassword.equals(userPassword)) { //if the login details and the record match, return true (= user can log in)
                 //System.out.println("Login details correct!");
                 rs.close();

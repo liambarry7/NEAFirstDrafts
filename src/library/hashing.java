@@ -9,7 +9,7 @@ public class hashing {
         
         try {
             //Values returned by a hash function are called Message Digest
-            //'SHA-256' - 256 nits Hash
+            //'SHA-256' - 256 bits Hash
             //Accepts a string variable specifying the name of the hashing alogrithm to be used and returns a hash value (message digest object implenting the algorithm
             MessageDigest md = MessageDigest.getInstance("SHA-256");
 
@@ -39,3 +39,6 @@ public class hashing {
     
     
 }
+
+//https://howtodoinjava.com/java/java-security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+//https://www.tutorialspoint.com/java_cryptography/java_cryptography_message_digest.htm

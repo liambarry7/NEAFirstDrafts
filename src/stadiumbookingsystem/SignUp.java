@@ -317,6 +317,12 @@ public class SignUp extends javax.swing.JFrame {
                 ErrorPassword.setVisible(true); //Tells user password must be at least 8 characters long and include 1 number                
             }
             
+            
+            
+//            if(userPassword.length() >= 8 && userPassword.matches("[0-9]+")) {
+//                
+//            }
+            
 
             //check email is valid
             boolean validEmail = false; //sets a boolean value to false until email is valid
