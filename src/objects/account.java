@@ -15,6 +15,7 @@ public class account {
     private String city;
     private String postCode;
 
+
     public account(int accountID, String firstName, String lastName, String email, String password, String phoneNo, String addressOne, String addressTwo, String city, String postCode) {
         this.accountID = accountID;
         this.firstName = firstName;
@@ -26,8 +27,8 @@ public class account {
         this.addressTwo = addressTwo;
         this.city = city;
         this.postCode = postCode;
-    }
-     
+        
+    }     
     
     public String toString() {
         return accountID + " " + firstName + " " + lastName + " " + email + " " + password + " " + phoneNo + " " + addressOne + " " + addressTwo + " " + city + " " + postCode;
@@ -73,6 +74,8 @@ public class account {
         return postCode;
     }
 
+    
+
     public void setAccountID(int accountID) {
         this.accountID = accountID;
     }
@@ -114,5 +117,7 @@ public class account {
     }
 
     
+
+
     
 }

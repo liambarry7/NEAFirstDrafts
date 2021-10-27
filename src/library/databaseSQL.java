@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class databaseSQL {
     
+    //private static final String DatabaseLocation = System.getProperty("user.dir") + "\\Db.accdb";
+    
     private static final String DatabaseLocation = System.getProperty("user.dir") + "\\SBSDatabase.accdb"; //location of database in files
     private static Connection con; //creating gloabal variable that can be used repeatedly rather than having to recreate new connection every time
     private static account currentUser; //global variable that stores the users details after they have logged in
@@ -126,6 +128,7 @@ public class databaseSQL {
                 String city = rs.getString("city");
                 String postCode = rs.getString("postcode");
                 
+                
                 currentUser = new account (id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode); //creates account object that is stored in a global variable 
                 
             }
@@ -157,6 +160,7 @@ public class databaseSQL {
                 String addressTwo = rs.getString("addresslinetwo");
                 String city = rs.getString("city");
                 String postCode = rs.getString("postcode");
+                
                 
                 account ac = new account(id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode); //creating new object to be added to the list
                 AccountList.add(ac); //adding new object to array list
@@ -220,10 +224,9 @@ public class databaseSQL {
                 int phoneNumber = rs.getInt("phonenumber");
                 String addressOne = rs.getString("addresslineone");
                 String addressTwo = rs.getString("addresslinetwo");
-                String city = rs.getString("city");
-                String postCode = rs.getString("postcode");
                 
-                System.out.println(id + " " + firstName + " " + lastName + " " + email + " " + password + " " + phoneNumber + " " + addressOne + " " + addressTwo + " " + city + " " + postCode);
+                
+                System.out.println(id + " " + firstName + " " + lastName + " " + email + " " + password + " " + phoneNumber + " " + addressOne + " " + addressTwo);
             }
             
             //Housekeeping - closing so that they can be used later
