@@ -19,7 +19,7 @@ public class AccountMenu extends javax.swing.JFrame {
     public AccountMenu() {
         initComponents();
         
-        //setting user details on GUI
+        //setting user details on GUI to be displayed to the user
         FirstNameLabel.setText(databaseSQL.getCurrentUser().getFirstName());
         LastNameLabel.setText(databaseSQL.getCurrentUser().getLastName());
         EmailLabel.setText(databaseSQL.getCurrentUser().getEmail());
@@ -29,8 +29,9 @@ public class AccountMenu extends javax.swing.JFrame {
         AddressTwoLabel.setText(databaseSQL.getCurrentUser().getAddressTwo());
         CityLabel.setText(databaseSQL.getCurrentUser().getCity());
         PostCodeLabel.setText(databaseSQL.getCurrentUser().getPostCode());
-//        MembershipLabel.setText(databaseSQL.getCurrentUser().getMembership()); //make membership for account
-//        CreditLabel.setText(databaseSQL.getCurrentUser().getStadiumCredit()); //make stadium credit for accounts
+        MembershipLabel.setText(databaseSQL.getCurrentUser().getMembership());
+        int userStadiumCredit = databaseSQL.getCurrentUser().getStadiumCredit();
+        CreditLabel.setText(Integer.toString(userStadiumCredit)); 
         
     }
 

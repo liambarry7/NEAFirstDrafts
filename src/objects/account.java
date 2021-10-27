@@ -14,9 +14,10 @@ public class account {
     private String addressTwo;
     private String city;
     private String postCode;
+    private String membership;
+    private int stadiumCredit;
 
-
-    public account(int accountID, String firstName, String lastName, String email, String password, String phoneNo, String addressOne, String addressTwo, String city, String postCode) {
+    public account(int accountID, String firstName, String lastName, String email, String password, String phoneNo, String addressOne, String addressTwo, String city, String postCode, String membership, int stadiumCredit) {
         this.accountID = accountID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,11 +28,16 @@ public class account {
         this.addressTwo = addressTwo;
         this.city = city;
         this.postCode = postCode;
-        
-    }     
+        this.membership = membership;
+        this.stadiumCredit = stadiumCredit;
+    }
+    
+    
+
+         
     
     public String toString() {
-        return accountID + " " + firstName + " " + lastName + " " + email + " " + password + " " + phoneNo + " " + addressOne + " " + addressTwo + " " + city + " " + postCode;
+        return accountID + " " + firstName + " " + lastName + " " + email + " " + password + " " + phoneNo + " " + addressOne + " " + addressTwo + " " + city + " " + postCode + " " + membership + " " + stadiumCredit;
     }
 
     public int getAccountID() {
@@ -72,6 +78,14 @@ public class account {
 
     public String getPostCode() {
         return postCode;
+    }
+
+    public String getMembership() {
+        return membership;
+    }
+
+    public int getStadiumCredit() {
+        return stadiumCredit;
     }
 
     
@@ -116,8 +130,15 @@ public class account {
         this.postCode = postCode;
     }
 
-    
+    public void setMembership(String membership) {
+        this.membership = membership;
+    }
 
+    public void setStadiumCredit(int stadiumCredit) {
+        this.stadiumCredit = stadiumCredit;
+    }
+
+    
 
     
 }

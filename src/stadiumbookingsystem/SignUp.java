@@ -350,7 +350,11 @@ public class SignUp extends javax.swing.JFrame {
                 int accountID = databaseSQL.getMaxAccountNumber(); //gets integer for highest accountID so that new account does not have the same ID as another account
                 String hashedPassword = hashing.hashPassword(PasswordField.getText());
                 System.out.println(hashedPassword);
-                account na = new account(accountID, FirstNameField.getText(), LastNameField.getText(), EmailField.getText(), hashedPassword, PhoneNumberField.getText(), AddressOneField.getText(), AddressTwoField.getText(), CityField.getText(), PostCodeField.getText());
+                
+                String membership = "not a member";
+                int stadiumCredit = 0;
+                
+                account na = new account(accountID, FirstNameField.getText(), LastNameField.getText(), EmailField.getText(), hashedPassword, PhoneNumberField.getText(), AddressOneField.getText(), AddressTwoField.getText(), CityField.getText(), PostCodeField.getText(), membership, stadiumCredit);
                 System.out.println(na);
                 
                 databaseSQL.addNewAccount(na);

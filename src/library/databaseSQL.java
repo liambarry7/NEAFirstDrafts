@@ -31,7 +31,7 @@ public class databaseSQL {
     public static void addNewAccount(account na) {
         try {
             //creating sql statement of adding a record into the account table
-            String sql = "INSERT INTO account VALUES ('"+na.getAccountID()+"','"+na.getFirstName()+"','"+na.getLastName()+"','"+na.getEmail()+"','"+na.getPassword()+"','"+na.getPhoneNo()+"','"+na.getAddressOne()+"','"+na.getAddressTwo()+"','"+na.getCity()+"','"+na.getPostCode()+"')";
+            String sql = "INSERT INTO account VALUES ('"+na.getAccountID()+"','"+na.getFirstName()+"','"+na.getLastName()+"','"+na.getEmail()+"','"+na.getPassword()+"','"+na.getPhoneNo()+"','"+na.getAddressOne()+"','"+na.getAddressTwo()+"','"+na.getCity()+"','"+na.getPostCode()+"','"+na.getMembership()+"','"+na.getStadiumCredit()+"')";
             executer.executeUpdateQuery(con, sql); //calling method from executer class to update the table using a connection and the sql statement as parameters        
             
             
@@ -127,9 +127,11 @@ public class databaseSQL {
                 String addressTwo = rs.getString("addresslinetwo");
                 String city = rs.getString("city");
                 String postCode = rs.getString("postcode");
+                String membership = rs.getString("membership");
+                int stadiumCredit = rs.getInt("stadiumCredit");
                 
                 
-                currentUser = new account (id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode); //creates account object that is stored in a global variable 
+                currentUser = new account (id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode, membership, stadiumCredit); //creates account object that is stored in a global variable 
                 
             }
             
@@ -160,9 +162,11 @@ public class databaseSQL {
                 String addressTwo = rs.getString("addresslinetwo");
                 String city = rs.getString("city");
                 String postCode = rs.getString("postcode");
+                String membership = rs.getString("membership");
+                int stadiumCredit = rs.getInt("stadiumCredit");
                 
                 
-                account ac = new account(id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode); //creating new object to be added to the list
+                account ac = new account(id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode, membership, stadiumCredit); //creating new object to be added to the list
                 AccountList.add(ac); //adding new object to array list
                 
                 
