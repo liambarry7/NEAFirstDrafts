@@ -13,8 +13,25 @@ public class StadiumBookingSystem {
     
     public static void main(String[] args) {
         
+       //NOTES
+       //Change limits on all fields in database to be a reasonable size for the input and add validation in code to represent that
+       //Complete stucture chart
+       //Complete database tables and entity flow diagram
+       //Complete data dictionary for new tables
+       //Complete file organising and processing: file sizing, data volumes and total size
+       //Ask julie about libraires and api, data capture and entry designs, as well as structure charts and what integer should be in data dictionary
+       //Ask julie where i need to close statements and connections
        
-        
+       //400 seats in total split between four stands
+       //485 for music events including standing
+       //use arraylists for booked tickets
+       //search through booked tickets per event to make array list of purchased tickets
+       
+       //payment - partially annomynise anything on screen
+       //hash security number
+       //convert account number from int to string for database for all card details 
+       //(if cant be turned, use try catch to stop crash and display error message to use to enter proper details
+       
         createLoginScreen();
         
         databaseSQL.getAllAccounts();
