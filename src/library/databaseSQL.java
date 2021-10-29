@@ -60,8 +60,50 @@ public class databaseSQL {
         } catch (Exception e) {
             System.out.println("Error in finding maximum account number: " + e);
         }
-        return 0;
+        return -1;
     }
+    
+    public static int getMaxPaymentNumber() {
+        try {
+            String sql = "SELECT MAX(paymentid) AS idNum FROM payment"; //find highest number of accountID, save value as idNum from account table
+            ResultSet rs = executer.executeQuery(getConnection(), sql); //uses connection to database and statement to fire query at the database
+            rs.next();
+            int idValue = rs.getInt("idNum")+1; //adds one to highest ID value so that new account
+            
+            System.out.println("Max payment num: " + idValue); //next account value (id)
+            
+            return idValue; //returns new ID number
+            
+        } catch (Exception e) {
+            System.out.println("Error in finding maximum payment number: " + e);
+        }
+        return -1;
+    }
+    
+    
+    //try to fix this so i dont have to have the same code for finding max values of IDs
+    //using parameters to create sql statements
+    
+//    public static int getMaxIDNumber(String column, String grid) {//field, table
+//        try {
+//            System.out.println(column + " + " + grid);
+//            String sql = "SELECT MAX('"+column+"') AS idNum FROM '"+grid+"'";
+//            ResultSet rs = executer.executeQuery(getConnection(), sql);
+//            rs.next();
+//            int idValue = rs.getInt("idNum")+1;
+//            
+//            System.out.println("Max account num: " + idValue);
+//            
+//            return idValue;
+//            
+//        } catch (Exception e) {
+//            System.out.println("Error in finding maximum " + column + " number in table " + grid + ": " + e);
+//        }
+//        
+//        return -1;
+//    }
+    
+    
     
     public static void removeAccount(int accountID) { //used for when a user decides to terminate their account
         try {            

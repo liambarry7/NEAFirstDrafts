@@ -128,6 +128,7 @@ public class Login extends javax.swing.JFrame {
     private void CreateAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountButtonActionPerformed
         
         SignUp su = new SignUp(); //creates new object to create signup menu
+        su.setSize(722, 700);
         su.setVisible(true);
         this.dispose(); //closes login window
     }//GEN-LAST:event_CreateAccountButtonActionPerformed

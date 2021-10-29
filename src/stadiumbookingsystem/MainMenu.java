@@ -141,6 +141,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void AccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountButtonActionPerformed
         AccountMenu am = new AccountMenu();
+        am.setSize(616, 540);
         am.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_AccountButtonActionPerformed

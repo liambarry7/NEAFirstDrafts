@@ -14,7 +14,10 @@ public class StadiumBookingSystem {
     public static void main(String[] args) {
         
        //NOTES
-       //Change limits on all fields in database to be a reasonable size for the input and add validation in code to represent that
+       //SET EVERYTHING TO NULL LAYOUT ON GUI
+       //MUST HAVE SET SIZE TO AVOID SMALL WINDOWS
+       
+       //Create regEx for password and phone number
        //use drop down menus for expiartion month and year
        //Work out season ticket stuff
        

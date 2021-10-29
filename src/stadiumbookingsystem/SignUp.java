@@ -70,48 +70,71 @@ public class SignUp extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stadiumbookingsystem/BaseLogo.PNG"))); // NOI18N
         jLabel2.setText("jLabel1");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(144, 11, 428, 94);
+        getContentPane().add(FirstNameField);
+        FirstNameField.setBounds(286, 148, 247, 31);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("First Name*:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(119, 147, 82, 31);
 
         LastNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LastNameFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(LastNameField);
+        LastNameField.setBounds(286, 190, 247, 31);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Password*:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(119, 283, 71, 25);
 
         EmailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmailFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(EmailField);
+        EmailField.setBounds(286, 232, 247, 31);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Email*:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(119, 232, 57, 27);
 
         PasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(PasswordField);
+        PasswordField.setBounds(286, 281, 247, 31);
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Phone Number*:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(119, 330, 113, 33);
 
         PhoneNumberField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PhoneNumberFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(PhoneNumberField);
+        PhoneNumberField.setBounds(286, 330, 247, 31);
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Address Line 1*:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(119, 374, 123, 31);
 
         BackButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         BackButton.setText("Back");
@@ -120,6 +143,8 @@ public class SignUp extends javax.swing.JFrame {
                 BackButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(BackButton);
+        BackButton.setBounds(39, 597, 63, 31);
 
         CreateAccountButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         CreateAccountButton.setText("Create Account");
@@ -128,153 +153,66 @@ public class SignUp extends javax.swing.JFrame {
                 CreateAccountButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(CreateAccountButton);
+        CreateAccountButton.setBounds(571, 598, 115, 31);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Last Name*:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(119, 197, 71, 15);
+        getContentPane().add(AddressOneField);
+        AddressOneField.setBounds(286, 375, 247, 31);
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Address Line 2:");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(119, 424, 86, 15);
+        getContentPane().add(AddressTwoField);
+        AddressTwoField.setBounds(286, 417, 247, 31);
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel10.setText("City/Town*:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(119, 460, 70, 26);
+        getContentPane().add(CityField);
+        CityField.setBounds(286, 459, 247, 31);
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel11.setText("PostCode*:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(119, 508, 70, 15);
+        getContentPane().add(PostCodeField);
+        PostCodeField.setBounds(286, 501, 247, 31);
 
         ErrorEmail.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         ErrorEmail.setForeground(new java.awt.Color(255, 0, 0));
         ErrorEmail.setText("Please enter a valid email address.");
+        getContentPane().add(ErrorEmail);
+        ErrorEmail.setBounds(170, 559, 341, 13);
 
         ErrorPassword.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         ErrorPassword.setForeground(new java.awt.Color(255, 0, 0));
         ErrorPassword.setText("Password must be 8 characters or longer, include 1 number and a captial letter.");
+        getContentPane().add(ErrorPassword);
+        ErrorPassword.setBounds(170, 578, 385, 13);
 
         ErrorFillFields.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         ErrorFillFields.setForeground(new java.awt.Color(255, 0, 0));
         ErrorFillFields.setText("Please enter information into all text fields.");
+        getContentPane().add(ErrorFillFields);
+        ErrorFillFields.setBounds(170, 616, 343, 13);
 
         ErrorPhoneNo.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         ErrorPhoneNo.setForeground(new java.awt.Color(255, 0, 0));
         ErrorPhoneNo.setText("Please enter a valid phone number.");
+        getContentPane().add(ErrorPhoneNo);
+        ErrorPhoneNo.setBounds(170, 597, 306, 13);
 
         ErrorValidInformation.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         ErrorValidInformation.setForeground(new java.awt.Color(255, 0, 0));
         ErrorValidInformation.setText("Please enter valid information into the text fields.");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CityField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(EmailField)
-                                        .addComponent(PhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AddressOneField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AddressTwoField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PostCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(FirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(189, 189, 189))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ErrorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ErrorValidInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ErrorPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(167, 167, 167))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ErrorPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ErrorFillFields, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CreateAccountButton)
-                        .addGap(36, 36, 36))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddressOneField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(AddressTwoField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CityField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(PostCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(ErrorEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ErrorPassword)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(CreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(ErrorPhoneNo)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(ErrorFillFields))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ErrorValidInformation)
-                .addGap(21, 21, 21))
-        );
+        getContentPane().add(ErrorValidInformation);
+        ErrorValidInformation.setBounds(170, 635, 307, 13);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -310,7 +248,9 @@ public class SignUp extends javax.swing.JFrame {
             
             //check email is valid
             boolean validEmail = false; //sets a boolean value to false until email is valid
-            Pattern rep = Pattern.compile("^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$"); //regular expression for checking email is valid
+            //regular expression for checking email is valid by looking for characters such as '@' and checking the ending is realistic (e.g. '.com')
+            Pattern rep = Pattern.compile("^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$");
+            
             Matcher m = rep.matcher(userEmail); //checks if user input is valid by comparing to regular expression limits
             if (m.matches()) { //returns true if email is valid
                 ErrorEmail.setVisible(false);
@@ -393,6 +333,19 @@ public class SignUp extends javax.swing.JFrame {
             if (validPassword == true && validEmail == true && validPhoneNo == true && validTextFields == true) {
                 
                 int accountID = databaseSQL.getMaxAccountNumber(); //gets integer for highest accountID so that new account does not have the same ID as another account
+//                String a = "AccountID";
+//                String b = "account";
+//                int accountID = databaseSQL.getMaxIDNumber(a,b);
+//                if (accountID == -1) {
+//                    System.out.println("FAIL");
+//                } else {
+//                    System.out.println("Success");
+//                }
+                
+                
+                
+                
+                
                 String hashedPassword = hashing.hashPassword(PasswordField.getText());
                 System.out.println(hashedPassword);
                 
