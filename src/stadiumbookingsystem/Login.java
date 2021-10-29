@@ -107,10 +107,9 @@ public class Login extends javax.swing.JFrame {
         
         if(valid == true) { //if database deatils are correct, it returns a true value to verify the login
             
-            databaseSQL.setCurrentUser(email, password);
+            databaseSQL.setCurrentUser(email, password); //uses parameters to get record where email and password match
             System.out.println("Logging in....");
             MainMenu mm = new MainMenu(); //creates new main menu object to be opened
-            //mm.setSize(600,500);
             mm.setVisible(true);
             this.dispose(); //closes login menu
             
@@ -128,8 +127,7 @@ public class Login extends javax.swing.JFrame {
 
     private void CreateAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountButtonActionPerformed
         
-        SignUp su = new SignUp();
-        //su.setSize(722, 670);
+        SignUp su = new SignUp(); //creates new object to create signup menu
         su.setVisible(true);
         this.dispose(); //closes login window
     }//GEN-LAST:event_CreateAccountButtonActionPerformed

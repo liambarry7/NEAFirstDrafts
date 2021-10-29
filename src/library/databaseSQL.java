@@ -18,12 +18,12 @@ public class databaseSQL {
     
     public static Connection getConnection() { //creating a connection to the database for when sql statements are executed
         try {
-            con = DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation, "", "");
-            return con;
+            con = DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation, "", ""); //sets variable con to the file location of the database file
+            return con; 
         } catch (Exception e) {
             System.out.println("Error with getting connection to database: " + e);
         }
-        return null;
+        return null; //return null value if no connection was made
     }
     
    // <editor-fold defaultstate="collapsed" desc="Account">
@@ -31,7 +31,10 @@ public class databaseSQL {
     public static void addNewAccount(account na) {
         try {
             //creating sql statement of adding a record into the account table
-            String sql = "INSERT INTO account VALUES ('"+na.getAccountID()+"','"+na.getFirstName()+"','"+na.getLastName()+"','"+na.getEmail()+"','"+na.getPassword()+"','"+na.getPhoneNo()+"','"+na.getAddressOne()+"','"+na.getAddressTwo()+"','"+na.getCity()+"','"+na.getPostCode()+"','"+na.getMembership()+"','"+na.getStadiumCredit()+"')";
+            String sql = "INSERT INTO account VALUES ('"+na.getAccountID()+"','"+na.getFirstName()+"','"+na.getLastName()+"'"
+                    + ",'"+na.getEmail()+"','"+na.getPassword()+"','"+na.getPhoneNo()+"','"+na.getAddressOne()+"','"+na.getAddressTwo()+"'"
+                    + ",'"+na.getCity()+"','"+na.getPostCode()+"','"+na.getMembership()+"','"+na.getStadiumCredit()+"')";
+            //Give statement the values from the account object that need to be put into the record
             executer.executeUpdateQuery(con, sql); //calling method from executer class to update the table using a connection and the sql statement as parameters        
             
             
@@ -45,8 +48,8 @@ public class databaseSQL {
     
     public static int getMaxAccountNumber() { //used for adding new accounts
         try {
-            String sql = "SELECT MAX(accountid) AS idNum FROM account"; //find highest number of accountID, save value as idNum from tbl_account
-            ResultSet rs = executer.executeQuery(getConnection(), sql);
+            String sql = "SELECT MAX(accountid) AS idNum FROM account"; //find highest number of accountID, save value as idNum from account table
+            ResultSet rs = executer.executeQuery(getConnection(), sql); //uses connection to database and statement to fire query at the database
             rs.next();
             int idValue = rs.getInt("idNum")+1; //adds one to highest ID value so that new account
             
@@ -63,7 +66,7 @@ public class databaseSQL {
     public static void removeAccount(int accountID) { //used for when a user decides to terminate their account
         try {            
             String sql = "DELETE FROM account WHERE accountid = '"+accountID+"' "; //statement used to find record with parametered account ID
-            executer.executeUpdateQuery(getConnection(), sql);
+            executer.executeUpdateQuery(getConnection(), sql); //uses connection to database and statement to fire update query at the database
             
             
             System.out.println("successfully removed record from account table in database");
@@ -78,9 +81,10 @@ public class databaseSQL {
     public static Boolean userLogIn(String loginEmail, String loginPassword) { //parameters taken from the text fields on login GUI
         try {
             String sql = "SELECT * FROM account WHERE email = '"+loginEmail+"'"; //selecting record where the email from the text fields match the database
-            ResultSet rs = executer.executeQuery(getConnection(), sql);
+            ResultSet rs = executer.executeQuery(getConnection(), sql); //uses connection to database and statement to fire query at the database
             
-            String userEmail = "";
+            //sets String to be empty so they can be rewrittern with the data from the result set
+            String userEmail = ""; 
             String userPassword = "";
             
             while(rs.next()) { //result set returns results where the email details match and retrieves the password for that account
@@ -91,13 +95,11 @@ public class databaseSQL {
             //hash loginPassword to be used to compare against the hashed database password
             String hashLoginPassword = hashing.hashPassword(loginPassword);
             
-            if (loginEmail.equals(userEmail) && hashLoginPassword.equals(userPassword)) { //if the login details and the record match, return true (= user can log in)
-                //System.out.println("Login details correct!");
+            if (loginEmail.equals(userEmail) && hashLoginPassword.equals(userPassword)) { //if the login details and the record match, return true (meaning user can log in)
                 rs.close();
                 con.close();
                 return true;
             } else {
-                //System.out.println("Login details incorrect!");
                 rs.close();
                 con.close();
                 return false;
@@ -114,8 +116,9 @@ public class databaseSQL {
     public static void setCurrentUser(String loginEmail, String loginPassword) {
         try {
             String sql = "SELECT * FROM account WHERE email = '" +loginEmail+ "'"; //selecting record where email matches database
-            ResultSet rs = executer.executeQuery(getConnection(), sql);
-
+            ResultSet rs = executer.executeQuery(getConnection(), sql); //uses connection to database and statement to fire query at the database
+            
+            //gets result set from sql statement
             while (rs.next()) {
                 int id = rs.getInt("accountid"); //get record and store it in variable id
                 String firstName = rs.getString("firstname");
@@ -130,8 +133,9 @@ public class databaseSQL {
                 String membership = rs.getString("membership");
                 int stadiumCredit = rs.getInt("stadiumCredit");
                 
-                
-                currentUser = new account (id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode, membership, stadiumCredit); //creates account object that is stored in a global variable 
+                //creates account object that is stored in a global variable for the logged in user so all their details can be accessed when logged in
+                currentUser = new account (id, firstName, lastName, email, password, phoneNumber, addressOne, addressTwo, city, postCode, membership, stadiumCredit); 
+
                 
             }
             

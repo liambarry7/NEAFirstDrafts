@@ -15,12 +15,17 @@ public class StadiumBookingSystem {
         
        //NOTES
        //Change limits on all fields in database to be a reasonable size for the input and add validation in code to represent that
+       //use drop down menus for expiartion month and year
+       //Work out season ticket stuff
+       
        //Complete stucture chart
-       //Complete database tables and entity flow diagram
-       //Complete data dictionary for new tables
+       //Complete database tables and entity flow diagram - done ish
+       //Complete data dictionary for new tables - done
        //Complete file organising and processing: file sizing, data volumes and total size
-       //Ask julie about libraires and api, data capture and entry designs, as well as structure charts and what integer should be in data dictionary
-       //Ask julie where i need to close statements and connections
+      
+       //Ask julie if what my structure chart is now is correct
+     
+    
        
        //400 seats in total split between four stands
        //485 for music events including standing
@@ -39,19 +44,12 @@ public class StadiumBookingSystem {
         
 //        databaseSQL.removeAccount(7);
         
-//        Connection con = databaseSQL.getConnection();        
-//        if (con==null){
-//            System.out.println("cheese");
-//        } else {
-//            System.out.println("tomato");
-//        }
-        
-        //databaseSQL.getMaxAccountNumber();
+
         
         
         
         
-        //JOptionPane.showMessageDialog(null, "New project added successfully");
+        
           
           
 //        //Making the window fit the screen
@@ -59,9 +57,7 @@ public class StadiumBookingSystem {
 //        int xSize = (int)tk.getScreenSize().getWidth();
 //        int ySize = (int)tk.getScreenSize().getHeight();
 //        System.out.println(xSize + " " + ySize);
-//        
-//        l.setSize(xSize,ySize);
-//        l.setVisible(true);
+
 
 
     }
