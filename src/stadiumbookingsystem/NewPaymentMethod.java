@@ -5,6 +5,7 @@
  */
 package stadiumbookingsystem;
 
+import java.awt.event.KeyEvent;
 import library.databaseSQL;
 
 /**
@@ -20,7 +21,7 @@ public class NewPaymentMethod extends javax.swing.JFrame {
         initComponents();
         
        
-        
+        //https://docs.oracle.com/javase/tutorial/uiswing/components/formattedtextfield.html
     }
 
     /**
@@ -78,6 +79,17 @@ public class NewPaymentMethod extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Security Number:");
 
+        SecurityNoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SecurityNoFieldActionPerformed(evt);
+            }
+        });
+        SecurityNoField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SecurityNoFieldKeyTyped(evt);
+            }
+        });
+
         MonthField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         MonthField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,8 +110,6 @@ public class NewPaymentMethod extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Year:");
-
-        CardNumberField.setText("0000-0000-0000-0000");
 
         jLabel8.setText("Card Number must be in the form: 0000-0000-0000-0000");
 
@@ -256,6 +266,21 @@ public class NewPaymentMethod extends javax.swing.JFrame {
         //get security number as an int (julie question) and then hash it
         
     }//GEN-LAST:event_AddButtonActionPerformed
+
+    private void SecurityNoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecurityNoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SecurityNoFieldActionPerformed
+
+    private void SecurityNoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SecurityNoFieldKeyTyped
+        String text = SecurityNoField.getText();
+        //Restricting characters
+        char c = evt.getKeyChar();
+        //if character or not a digit or chracter is not backspace key or delete key
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE) || (text.length() > 3))) {
+            evt.consume(); //will not accept typing that isnt a number, backspace or delete key
+        }
+        
+    }//GEN-LAST:event_SecurityNoFieldKeyTyped
 
     /**
      * @param args the command line arguments

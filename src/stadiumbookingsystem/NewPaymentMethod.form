@@ -195,6 +195,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="SecurityNoField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SecurityNoFieldActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SecurityNoFieldKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="MonthField">
       <Properties>
@@ -241,9 +245,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="CardNumberField">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0000-0000-0000-0000"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>

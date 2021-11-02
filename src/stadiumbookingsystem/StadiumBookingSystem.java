@@ -27,6 +27,7 @@ public class StadiumBookingSystem {
        //Complete file organising and processing: file sizing, data volumes and total size
       
        //Ask julie if what my structure chart is now is correct
+       //Ask julie what happens if you change your code and the design does not match it after its been submitted.
      
     
        

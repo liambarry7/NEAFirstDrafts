@@ -5,6 +5,8 @@
  */
 package stadiumbookingsystem;
 
+
+
 /**
  *
  * @author kimia
@@ -16,6 +18,10 @@ public class AccountPaymentMethods extends javax.swing.JFrame {
      */
     public AccountPaymentMethods() {
         initComponents();
+        
+        
+        
+        
     }
 
     /**
