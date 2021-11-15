@@ -17,6 +17,8 @@ public class StadiumBookingSystem {
        //SET EVERYTHING TO NULL LAYOUT ON GUI
        //MUST HAVE SET SIZE TO AVOID SMALL WINDOWS
        
+       //CHANGE DFD TO INCLUDE PAYMENT TABLE
+       
        //Create regEx for password and phone number
        //use drop down menus for expiartion month and year
        //Work out season ticket stuff
