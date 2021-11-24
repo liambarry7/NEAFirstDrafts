@@ -7,6 +7,8 @@ package stadiumbookingsystem;
 
 import java.awt.event.KeyEvent;
 import library.databaseSQL;
+import library.hashing;
+import objects.payment;
 
 /**
  *
@@ -45,7 +47,6 @@ public class NewPaymentMethod extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         CardHolderNameField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        CardNumberField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -53,6 +54,7 @@ public class NewPaymentMethod extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         AddButton = new javax.swing.JButton();
+        CardNoField = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,6 +100,11 @@ public class NewPaymentMethod extends javax.swing.JFrame {
         });
 
         YearField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2022", "2023", "2025", "2026", "2027" }));
+        YearField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                YearFieldActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Month:");
@@ -131,6 +138,17 @@ public class NewPaymentMethod extends javax.swing.JFrame {
             }
         });
 
+        try {
+            CardNoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        CardNoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CardNoFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,18 +165,7 @@ public class NewPaymentMethod extends javax.swing.JFrame {
                         .addGap(96, 96, 96)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(CardNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(MonthField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(162, 162, 162)
-                                .addComponent(YearField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(116, 116, 116)
-                                .addComponent(jLabel7))
                             .addComponent(jLabel8)
                             .addComponent(jLabel6)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,7 +177,18 @@ public class NewPaymentMethod extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel14)))))
+                                .addComponent(jLabel14))
+                            .addComponent(CardNoField, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(54, 54, 54)
+                                        .addComponent(MonthField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(YearField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(248, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(96, 96, 96)
@@ -198,37 +216,33 @@ public class NewPaymentMethod extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
+                .addComponent(CardNoField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CardNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addGap(47, 47, 47)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(MonthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(90, 90, 90)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MonthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(YearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(YearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
+                        .addGap(92, 92, 92)
                         .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(SecurityNoField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackButton)
                     .addComponent(AddButton))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -250,20 +264,56 @@ public class NewPaymentMethod extends javax.swing.JFrame {
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         
-        //Adding new payment method to database
-        int accountID = databaseSQL.getCurrentUser().getAccountID();
+        try {
+            //fix parametered method for payment and account IDs
+
+            //Adding new payment method to database
+            int accountID = databaseSQL.getCurrentUser().getAccountID();
+
+            int paymentID = databaseSQL.getMaxPaymentNumber();//geting paymentID   
+            String cardHolder = CardHolderNameField.getText();
+            String cardNumber = CardNoField.getText();//check its in the right format
+
+            //turn month and year into integers
+            String exMonth = MonthField.getSelectedItem().toString(); //gets input from drop down box and turns it into a string
+            String exYear = YearField.getSelectedItem().toString(); //gets input from drop down box and turns it into a string
+
+            //get security number as an int and then hash it
+            String secNo = SecurityNoField.getText();
+            String hashSecNo = hashing.hasher(secNo);
+            //System.out.println(hashSecNo);
+
+            payment newPaymentMethod = new payment(paymentID, accountID, cardHolder, cardNumber, exMonth, exYear, hashSecNo);
+            
+            //System.out.println("a");
+            
+            databaseSQL.addNewPayment(newPaymentMethod);
+      
+            //System.out.println("a");
+            
+            AccountPaymentMethods apm = new AccountPaymentMethods();
+            apm.setVisible(true);
+            this.dispose();
+
+        } catch (Exception e) {
+            System.out.println("Error when adding new payment: " + e);
+        }
         
-        //geting paymentID
-        //fix parametered method
-        int paymentID = databaseSQL.getMaxPaymentNumber();
-        String cardHolder = CardHolderNameField.getText();
-        String CardNumber = CardNumberField.getText();//check its in the right format
-        
-        //turn month and year into integers
-        String exMonth = MonthField.getSelectedItem().toString(); //gets object from drop down box and turns it into a string
-        
-        
-        //get security number as an int (julie question) and then hash it
+//        
+//        //Adding new payment method to database
+//        int accountID = databaseSQL.getCurrentUser().getAccountID();
+//        
+//        //geting paymentID
+//        //fix parametered method
+//        int paymentID = databaseSQL.getMaxPaymentNumber();
+//        String cardHolder = CardHolderNameField.getText();
+//        String CardNumber = CardNumberField.getText();//check its in the right format
+//        
+//        //turn month and year into integers
+//        String exMonth = MonthField.getSelectedItem().toString(); //gets object from drop down box and turns it into a string
+//        
+//        
+//        //get security number as an int (julie question) and then hash it
         
     }//GEN-LAST:event_AddButtonActionPerformed
 
@@ -281,6 +331,14 @@ public class NewPaymentMethod extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_SecurityNoFieldKeyTyped
+
+    private void CardNoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardNoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CardNoFieldActionPerformed
+
+    private void YearFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YearFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_YearFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,7 +380,7 @@ public class NewPaymentMethod extends javax.swing.JFrame {
     private javax.swing.JButton AddButton;
     private javax.swing.JButton BackButton;
     private javax.swing.JTextField CardHolderNameField;
-    private javax.swing.JTextField CardNumberField;
+    private javax.swing.JFormattedTextField CardNoField;
     private javax.swing.JComboBox<String> MonthField;
     private javax.swing.JPasswordField SecurityNoField;
     private javax.swing.JComboBox<String> YearField;

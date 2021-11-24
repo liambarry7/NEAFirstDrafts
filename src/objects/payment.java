@@ -7,10 +7,10 @@ public class payment {
     private String cardHolderName;
     private String cardNumber;
     private String expirationMonth;
-    private int expirationYear;
-    private int securityNumber; //hash itttttt
+    private String expirationYear;
+    private String securityNumber; //hash itttttt
 
-    public payment(int paymentID, int accountID, String cardHolderName, String cardNumber, String expirationMonth, int expirationYear, int securityNumber) {
+    public payment(int paymentID, int accountID, String cardHolderName, String cardNumber, String expirationMonth, String expirationYear, String securityNumber) {
         this.paymentID = paymentID;
         this.accountID = accountID;
         this.cardHolderName = cardHolderName;
@@ -18,11 +18,6 @@ public class payment {
         this.expirationMonth = expirationMonth;
         this.expirationYear = expirationYear;
         this.securityNumber = securityNumber;
-    }
-
-    
-    public String toString() {
-        return paymentID + " " + accountID + " " + cardHolderName + " " + cardNumber + " " + expirationMonth + " " + expirationYear + " " + securityNumber;
     }
 
     public int getPaymentID() {
@@ -45,11 +40,11 @@ public class payment {
         return expirationMonth;
     }
 
-    public int getExpirationYear() {
+    public String getExpirationYear() {
         return expirationYear;
     }
 
-    public int getSecurityNumber() {
+    public String getSecurityNumber() {
         return securityNumber;
     }
 
@@ -73,13 +68,14 @@ public class payment {
         this.expirationMonth = expirationMonth;
     }
 
-    public void setExpirationYear(int expirationYear) {
+    public void setExpirationYear(String expirationYear) {
         this.expirationYear = expirationYear;
     }
 
-    public void setSecurityNumber(int securityNumber) {
+    public void setSecurityNumber(String securityNumber) {
         this.securityNumber = securityNumber;
     }
+
     
     
     

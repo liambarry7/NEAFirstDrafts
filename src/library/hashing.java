@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 
 public class hashing {
     
-    public static String hashPassword(String password) {
+    public static String hasher(String password) {
         
         try {
             //Values returned by a hash function are called Message Digest

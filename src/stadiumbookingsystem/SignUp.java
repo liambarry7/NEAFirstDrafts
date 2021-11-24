@@ -346,7 +346,7 @@ public class SignUp extends javax.swing.JFrame {
                 
                 
                 
-                String hashedPassword = hashing.hashPassword(PasswordField.getText());
+                String hashedPassword = hashing.hasher(PasswordField.getText());
                 System.out.println(hashedPassword);
                 
                 String membership = "not a member";

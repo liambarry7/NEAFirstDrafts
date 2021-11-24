@@ -80,6 +80,33 @@ public class databaseSQL {
         return -1;
     }
     
+    public static void addNewPayment(payment newPaymentMethod) {
+        try {
+            //System.out.println("a");
+            
+            String sql = "INSERT INTO payment VALUES ('"+newPaymentMethod.getPaymentID()+"','"+newPaymentMethod.getAccountID()+
+                    "','"+newPaymentMethod.getCardHolderName()+"','"+newPaymentMethod.getCardNumber()+"','"+newPaymentMethod.getExpirationMonth()+
+                     "','"+newPaymentMethod.getExpirationYear()+"','"+newPaymentMethod.getSecurityNumber()+"')";
+            
+            //creating sql statement of adding a record into the payment table
+            //String sql = "INSERT INTO payment VALUES ('" + newPaymentMethod.getPaymentID() + "','" + newPaymentMethod.getAccountID() + "','" + newPaymentMethod.getCardHolderName() + "','"
+             //       + newPaymentMethod.getCardNumber() + "','" + newPaymentMethod.getExpirationMonth() + "','" + newPaymentMethod.getExpirationYear() + "','" + newPaymentMethod.getSecurityNumber() + "')";
+
+            
+            //System.out.println("a");
+            
+            //Give statement the values from the payment object that need to be put into the record
+            executer.executeUpdateQuery(getConnection(), sql); //calling method from executer class to update the table using a connection and the sql statement as parameters
+                        
+            System.out.println("successfully added new payment to database");
+           
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Error when adding new payment to database: " + e);
+        }
+        
+    }
+    
     
     //try to fix this so i dont have to have the same code for finding max values of IDs
     //using parameters to create sql statements
@@ -135,7 +162,7 @@ public class databaseSQL {
             }
             
             //hash loginPassword to be used to compare against the hashed database password
-            String hashLoginPassword = hashing.hashPassword(loginPassword);
+            String hashLoginPassword = hashing.hasher(loginPassword);
             
             if (loginEmail.equals(userEmail) && hashLoginPassword.equals(userPassword)) { //if the login details and the record match, return true (meaning user can log in)
                 rs.close();
