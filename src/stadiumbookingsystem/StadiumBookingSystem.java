@@ -26,7 +26,7 @@ public class StadiumBookingSystem {
        
        //Ask julie what happens if you change your code and the design does not match it after its been submitted.
      
-    
+       //Make Events set to size (for display) as you can only see so many events before their available
        
        //400 seats in total split between four stands
        //485 for music events including standing
