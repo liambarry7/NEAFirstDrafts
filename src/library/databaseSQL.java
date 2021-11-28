@@ -35,7 +35,7 @@ public class databaseSQL {
                     + ",'"+na.getEmail()+"','"+na.getPassword()+"','"+na.getPhoneNo()+"','"+na.getAddressOne()+"','"+na.getAddressTwo()+"'"
                     + ",'"+na.getCity()+"','"+na.getPostCode()+"','"+na.getMembership()+"','"+na.getStadiumCredit()+"')";
             //Give statement the values from the account object that need to be put into the record
-            executer.executeUpdateQuery(con, sql); //calling method from executer class to update the table using a connection and the sql statement as parameters        
+            executer.executeUpdateQuery(getConnection(), sql); //calling method from executer class to update the table using a connection and the sql statement as parameters        
             
             
             System.out.println("successfully added new account to database");
@@ -48,12 +48,14 @@ public class databaseSQL {
     
     public static int getMaxAccountNumber() { //used for adding new accounts
         try {
-            String sql = "SELECT MAX(accountid) AS idNum FROM account"; //find highest number of accountID, save value as idNum from account table
+            String sql = "SELECT MAX(accountid) AS accountNum FROM account"; //find highest number of accountID, save value as idNum from account table
             ResultSet rs = executer.executeQuery(getConnection(), sql); //uses connection to database and statement to fire query at the database
             rs.next();
-            int idValue = rs.getInt("idNum")+1; //adds one to highest ID value so that new account
+            int idValue = rs.getInt("accountNum")+1; //adds one to highest ID value so that new account
+            System.out.println("New account num: " + idValue); //next account value (id)
             
-            System.out.println("Max account num: " + idValue); //next account value (id)
+            rs.close();
+            con.close();
             
             return idValue; //returns new ID number
             
@@ -63,14 +65,19 @@ public class databaseSQL {
         return -1;
     }
     
+    
     public static int getMaxPaymentNumber() {
         try {
-            String sql = "SELECT MAX(paymentid) AS idNum FROM payment"; //find highest number of accountID, save value as idNum from account table
+            String sql = "SELECT MAX(paymentid) AS paymentNum FROM payment"; //find highest number of accountID, save value as idNum from account table
             ResultSet rs = executer.executeQuery(getConnection(), sql); //uses connection to database and statement to fire query at the database
             rs.next();
-            int idValue = rs.getInt("idNum")+1; //adds one to highest ID value so that new account
+            int idValue = rs.getInt("paymentNum")+1; //adds one to highest ID value so that new account
             
-            System.out.println("Max payment num: " + idValue); //next account value (id)
+            
+            System.out.println("New payment num: " + idValue); //next account value (id)
+            
+            rs.close();
+            con.close();
             
             return idValue; //returns new ID number
             
@@ -208,6 +215,9 @@ public class databaseSQL {
                 
             }
             
+            rs.close();
+            con.close();
+            
         } catch (Exception e) {
             System.out.println("Error in setting current user: " + e);
         }       
@@ -218,6 +228,28 @@ public class databaseSQL {
         return currentUser;
     }
     
+    public static void getAllPayments() {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM paymentTest";
+            ResultSet rs = executer.executeQuery(getConnection(), sql);
+            while (rs.next()) {
+                int id = rs.getInt("paymentid");
+                
+                numbers.add(id);
+            }
+            
+            for (int i = 0; i < numbers.size(); i++) {
+                System.out.println(numbers.get(i));
+                
+            }
+            
+            rs.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("well this isnt working");
+        }
+    }
     
     public static void getAllAccounts() {
         ArrayList<account> AccountList = new ArrayList<>();
@@ -251,7 +283,10 @@ public class databaseSQL {
                     System.out.println(AccountList.get(i));                    
                 }
             
+            
+            rs.close();
             con.close();
+            
         } catch (Exception e) {
             System.out.println(e);
         }

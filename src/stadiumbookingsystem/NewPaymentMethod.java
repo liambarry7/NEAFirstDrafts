@@ -273,7 +273,7 @@ public class NewPaymentMethod extends javax.swing.JFrame {
             int paymentID = databaseSQL.getMaxPaymentNumber();//geting paymentID   
             String cardHolder = CardHolderNameField.getText();
             String cardNumber = CardNoField.getText();//check its in the right format
-
+            
             //turn month and year into integers
             String exMonth = MonthField.getSelectedItem().toString(); //gets input from drop down box and turns it into a string
             String exYear = YearField.getSelectedItem().toString(); //gets input from drop down box and turns it into a string
@@ -287,10 +287,11 @@ public class NewPaymentMethod extends javax.swing.JFrame {
             
             //System.out.println("a");
             
-            databaseSQL.addNewPayment(newPaymentMethod);
-      
-            //System.out.println("a");
+            System.out.println(newPaymentMethod.toString());
             
+            databaseSQL.addNewPayment(newPaymentMethod);
+            
+                        
             AccountPaymentMethods apm = new AccountPaymentMethods();
             apm.setVisible(true);
             this.dispose();
@@ -326,9 +327,12 @@ public class NewPaymentMethod extends javax.swing.JFrame {
         //Restricting characters
         char c = evt.getKeyChar();
         //if character or not a digit or chracter is not backspace key or delete key
-        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE) || (text.length() > 3))) {
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE))) {
             evt.consume(); //will not accept typing that isnt a number, backspace or delete key
+        } else if (text.length() >= 3) { //will consume any character if length of string is greater than 3
+            evt.consume();
         }
+        
         
     }//GEN-LAST:event_SecurityNoFieldKeyTyped
 

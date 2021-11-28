@@ -20,15 +20,10 @@ public class StadiumBookingSystem {
        //CHANGE DFD TO INCLUDE PAYMENT TABLE
        
        //Create regEx for password and phone number
-       //use drop down menus for expiartion month and year
+       
        //Work out season ticket stuff
        
-       //Complete stucture chart
-       //Complete database tables and entity flow diagram - done ish
-       //Complete data dictionary for new tables - done
-       //Complete file organising and processing: file sizing, data volumes and total size
-      
-       //Ask julie if what my structure chart is now is correct
+       
        //Ask julie what happens if you change your code and the design does not match it after its been submitted.
      
     
@@ -38,15 +33,16 @@ public class StadiumBookingSystem {
        //use arraylists for booked tickets
        //search through booked tickets per event to make array list of purchased tickets
        
+       //DISPLAY PAYMENTS IN A TABLE - use this to figure out how to display events and tickets
        //payment - partially annomynise anything on screen
-       //hash security number
-       //convert account number from int to string for database for all card details 
-       //(if cant be turned, use try catch to stop crash and display error message to use to enter proper details
+       
+       
        
         createLoginScreen();
         
         databaseSQL.getAllAccounts();
         
+        databaseSQL.getAllPayments();
         
 //        databaseSQL.removeAccount(7);
         

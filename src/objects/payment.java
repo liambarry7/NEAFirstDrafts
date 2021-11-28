@@ -19,6 +19,10 @@ public class payment {
         this.expirationYear = expirationYear;
         this.securityNumber = securityNumber;
     }
+    
+    public String toString() {
+        return paymentID + " " + accountID + " " + cardHolderName + " " + cardNumber + " " + expirationMonth + " " + expirationYear + " " + securityNumber;
+    }
 
     public int getPaymentID() {
         return paymentID;
